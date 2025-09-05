@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Priyanka - Flower Garden Celebration</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #ffeef8 0%, #f0f8ff 50%, #e8f5e8 100%);
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Floating petals background */
+    .petal {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: radial-gradient(ellipse, #ff69b4, #ff1493);
+      border-radius: 50% 0 50% 0;
+      animation: float 8s infinite linear;
+      opacity: 0.7;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 0.7;
+      }
+      90% {
+        opacity: 0.7;
+      }
+      100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      padding: 40px 20px;
+      animation: fadeInDown 1.5s ease-out;
+    }
+
+    .main-title {
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(3rem, 8vw, 6rem);
+      color: #d63384;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+      margin-bottom: 10px;
+      animation: bounce 2s infinite;
+    }
+
+    .subtitle {
+      font-size: clamp(1.2rem, 3vw, 2rem);
+      color: #6f42c1;
+      font-weight: 300;
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+      }
+      40% {
+        transform: translateY(-10px);
+      }
+      60% {
+        transform: translateY(-5px);
+      }
+    }
+
+    /* Main bouquet container */
+    .bouquet-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 60vh;
+      padding: 20px;
+      position: relative;
+    }
+
+    .main-bouquet {
+      position: relative;
+      animation: fadeInUp 2s ease-out;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .main-bouquet:hover {
+      transform: scale(1.05);
+    }
+
+    /* Big flower bouquet */
+    .big-flower {
+      width: 200px;
+      height: 200px;
+      position: relative;
+      margin: 0 auto 20px;
+    }
+
+    .flower-center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 40px;
+      height: 40px;
+      background: radial-gradient(circle, #ffd700, #ff8c00);
+      border-radius: 50%;
+      z-index: 10;
+      animation: pulse 2s infinite;
+    }
+
+    .petal-large {
+      position: absolute;
+      width: 60px;
+      height: 80px;
+      background: linear-gradient(135deg, #ff69b4, #ff1493);
+      border-radius: 50% 50% 50% 0;
+      top: 50%;
+      left: 50%;
+      transform-origin: 0 100%;
+      animation: petalGlow 3s infinite alternate;
+    }
+
+    .petal-large:nth-child(1) { transform: translate(-50%, -50%) rotate(0deg); }
+    .petal-large:nth-child(2) { transform: translate(-50%, -50%) rotate(45deg); }
+    .petal-large:nth-child(3) { transform: translate(-50%, -50%) rotate(90deg); }
+    .petal-large:nth-child(4) { transform: translate(-50%, -50%) rotate(135deg); }
+    .petal-large:nth-child(5) { transform: translate(-50%, -50%) rotate(180deg); }
+    .petal-large:nth-child(6) { transform: translate(-50%, -50%) rotate(225deg); }
+    .petal-large:nth-child(7) { transform: translate(-50%, -50%) rotate(270deg); }
+    .petal-large:nth-child(8) { transform: translate(-50%, -50%) rotate(315deg); }
+
+    @keyframes petalGlow {
+      0% { box-shadow: 0 0 10px rgba(255, 105, 180, 0.5); }
+      100% { box-shadow: 0 0 25px rgba(255, 105, 180, 0.8); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: translate(-50%, -50%) scale(1); }
+      50% { transform: translate(-50%, -50%) scale(1.1); }
+    }
+
+    /* Flower stem */
+    .stem {
+      width: 8px;
+      height: 100px;
+      background: linear-gradient(to bottom, #228b22, #006400);
+      margin: 0 auto;
+      border-radius: 4px;
+      position: relative;
+    }
+
+    .leaf {
+      position: absolute;
+      width: 30px;
+      height: 20px;
+      background: linear-gradient(135deg, #32cd32, #228b22);
+      border-radius: 0 100% 0 100%;
+      top: 30px;
+    }
+
+    .leaf:nth-child(1) {
+      left: -25px;
+      transform: rotate(-30deg);
+    }
+
+    .leaf:nth-child(2) {
+      right: -25px;
+      transform: rotate(30deg);
+    }
+
+    /* Birthday card */
+    .birthday-card {
+      background: linear-gradient(135deg, #fff, #f8f9fa);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+      max-width: 400px;
+      margin: 40px auto;
+      text-align: center;
+      border: 3px solid #ff69b4;
+      animation: cardFloat 3s ease-in-out infinite;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .birthday-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 25px 45px rgba(0,0,0,0.15);
+    }
+
+    @keyframes cardFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+
+    .card-title {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2.5rem;
+      color: #d63384;
+      margin-bottom: 15px;
+    }
+
+    .card-message {
+      font-size: 1.1rem;
+      color: #495057;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .card-signature {
+      font-style: italic;
+      color: #6c757d;
+      font-size: 0.9rem;
+    }
+
+    /* Small flowers around */
+    .small-flower {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      animation: smallFlowerFloat 4s ease-in-out infinite;
+    }
+
+    .small-flower:hover {
+      transform: scale(1.2) rotate(15deg);
+    }
+
+    @keyframes smallFlowerFloat {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-10px) rotate(5deg); }
+    }
+
+    .small-flower-petals {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .small-petal {
+      position: absolute;
+      width: 15px;
+      height: 20px;
+      border-radius: 50% 50% 50% 0;
+      top: 50%;
+      left: 50%;
+      transform-origin: 0 100%;
+    }
+
+    .small-flower-center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 12px;
+      height: 12px;
+      background: #ffd700;
+      border-radius: 50%;
+      z-index: 5;
+    }
+
+    /* Interactive celebration button */
+    .celebration-btn {
+      background: linear-gradient(135deg, #ff69b4, #ff1493);
+      border: none;
+      padding: 15px 30px;
+      border-radius: 50px;
+      color: white;
+      font-size: 1.2rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 20px rgba(255, 105, 180, 0.3);
+      margin: 20px;
+      animation: buttonGlow 2s infinite alternate;
+    }
+
+    .celebration-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 25px rgba(255, 105, 180, 0.4);
+    }
+
+    @keyframes buttonGlow {
+      0% { box-shadow: 0 8px 20px rgba(255, 105, 180, 0.3); }
+      100% { box-shadow: 0 8px 30px rgba(255, 105, 180, 0.6); }
+    }
+
+    /* Sparkle effect */
+    .sparkle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: #ffd700;
+      border-radius: 50%;
+      pointer-events: none;
+      animation: sparkleAnim 1s ease-out forwards;
+    }
+
+    @keyframes sparkleAnim {
+      0% {
+        transform: scale(0) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(3) rotate(180deg);
+        opacity: 0;
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .big-flower {
+        width: 150px;
+        height: 150px;
+      }
+      
+      .petal-large {
+        width: 45px;
+        height: 60px;
+      }
+      
+      .birthday-card {
+        margin: 20px;
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <div class="header">
+    <h1 class="main-title">🌸 Happy Birthday Priyanka! 🌸</h1>
+    <p class="subtitle">A Garden of Wishes Just for You</p>
+  </div>
+
+  <!-- Main bouquet -->
+  <div class="bouquet-container">
+    <div class="main-bouquet" onclick="createCelebration()">
+      <div class="big-flower">
+        <div class="petal-large"></div>
+        <div class="petal-large"></div>
+        <div class="petal-large"></div>
+        <div class="petal-large"></div>
+        <div class="petal-large"></div>
+        <div class="petal-large"></div>
+        <div class="petal-large"></div>
+        <div class="petal-large"></div>
+        <div class="flower-center"></div>
+      </div>
+      <div class="stem">
+        <div class="leaf"></div>
+        <div class="leaf"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Birthday card -->
+  <div class="birthday-card" onclick="createSparkles(event)">
+    <h2 class="card-title">Happy Birthday Priyankaaa! 🎂</h2>
+    <p class="card-message">
+      Like flowers that bloom with grace and beauty,<br>
+      may your life be filled with endless joy, love, and wonderful surprises.<br>
+      May this birthday bring you all the happiness your heart can hold! 🌺✨
+    </p>
+    <p class="card-signature">With Flowers and Best Wishes 🌸</p>
+  </div>
+
+  <!-- Celebration button -->
+  <div style="text-align: center;">
+    <button class="celebration-btn" onclick="createFlowerShower()">
+      🌻 Bloom More Flowers 🌻
+    </button>
+  </div>
+
+  <script>
+    // Small flower colors and positions
+    const flowerColors = [
+      ['#ff6b9d', '#ff8fab'],
+      ['#a8e6cf', '#7fcdcd'],
+      ['#ffd93d', '#6bcf7f'],
+      ['#ff9ff3', '#f368e0'],
+      ['#74b9ff', '#0984e3'],
+      ['#fd79a8', '#fdcb6e']
+    ];
+
+    // Create floating petals
+    function createPetal() {
+      const petal = document.createElement('div');
+      petal.className = 'petal';
+      petal.style.left = Math.random() * window.innerWidth + 'px';
+      petal.style.animationDuration = (6 + Math.random() * 4) + 's';
+      petal.style.animationDelay = Math.random() * 2 + 's';
+      
+      const colors = ['#ff69b4', '#ff1493', '#da70d6', '#ba55d3', '#9370db'];
+      petal.style.background = `radial-gradient(ellipse, ${colors[Math.floor(Math.random() * colors.length)]}, #ff69b4)`;
+      
+      document.body.appendChild(petal);
+      setTimeout(() => petal.remove(), 10000);
+    }
+
+    // Create small flowers around the main bouquet
+    function createSmallFlower(x, y, colorIndex) {
+      const flower = document.createElement('div');
+      flower.className = 'small-flower';
+      flower.style.left = x + 'px';
+      flower.style.top = y + 'px';
+      flower.style.animationDelay = Math.random() * 2 + 's';
+      
+      const flowerPetals = document.createElement('div');
+      flowerPetals.className = 'small-flower-petals';
+      
+      const colors = flowerColors[colorIndex % flowerColors.length];
+      
+      for (let i = 0; i < 6; i++) {
+        const petal = document.createElement('div');
+        petal.className = 'small-petal';
+        petal.style.transform = `translate(-50%, -50%) rotate(${i * 60}deg)`;
+        petal.style.background = `linear-gradient(135deg, ${colors[0]}, ${colors[1]})`;
+        flowerPetals.appendChild(petal);
+      }
+      
+      const center = document.createElement('div');
+      center.className = 'small-flower-center';
+      flowerPetals.appendChild(center);
+      
+      flower.appendChild(flowerPetals);
+      flower.onclick = () => createSparkles(event);
+      
+      document.body.appendChild(flower);
+      
+      setTimeout(() => flower.remove(), 15000);
+    }
+
+    // Create sparkle effect
+    function createSparkles(event) {
+      const rect = event.target.getBoundingClientRect();
+      const x = rect.left + rect.width / 2;
+      const y = rect.top + rect.height / 2;
+      
+      for (let i = 0; i < 12; i++) {
+        setTimeout(() => {
+          const sparkle = document.createElement('div');
+          sparkle.className = 'sparkle';
+          sparkle.style.left = (x + (Math.random() - 0.5) * 100) + 'px';
+          sparkle.style.top = (y + (Math.random() - 0.5) * 100) + 'px';
+          
+          const colors = ['#ffd700', '#ff69b4', '#00bfff', '#98fb98', '#dda0dd'];
+          sparkle.style.background = colors[Math.floor(Math.random() * colors.length)];
+          
+          document.body.appendChild(sparkle);
+          setTimeout(() => sparkle.remove(), 1000);
+        }, i * 50);
+      }
+    }
+
+    // Create celebration effect
+    function createCelebration() {
+      // Create multiple small flowers
+      for (let i = 0; i < 8; i++) {
+        setTimeout(() => {
+          const x = Math.random() * (window.innerWidth - 100);
+          const y = Math.random() * (window.innerHeight - 200) + 100;
+          createSmallFlower(x, y, i);
+        }, i * 200);
+      }
+      
+      // Create extra petals
+      for (let i = 0; i < 15; i++) {
+        setTimeout(createPetal, i * 100);
+      }
+    }
+
+    // Flower shower effect
+    function createFlowerShower() {
+      for (let i = 0; i < 20; i++) {
+        setTimeout(() => {
+          const x = Math.random() * window.innerWidth;
+          const y = Math.random() * window.innerHeight;
+          createSmallFlower(x, y, Math.floor(Math.random() * flowerColors.length));
+        }, i * 150);
+      }
+      
+      for (let i = 0; i < 25; i++) {
+        setTimeout(createPetal, i * 80);
+      }
+    }
+
+    // Initialize the garden
+    function initGarden() {
+      // Create initial small flowers
+      const positions = [
+        {x: 100, y: 200}, {x: window.innerWidth - 150, y: 250},
+        {x: 150, y: window.innerHeight - 200}, {x: window.innerWidth - 200, y: window.innerHeight - 150},
+        {x: 80, y: window.innerHeight / 2}, {x: window.innerWidth - 120, y: window.innerHeight / 2}
+      ];
+      
+      positions.forEach((pos, index) => {
+        setTimeout(() => {
+          if (pos.x < window.innerWidth && pos.y < window.innerHeight) {
+            createSmallFlower(pos.x, pos.y, index);
+          }
+        }, index * 500);
+      });
+      
+      // Start petal animation
+      setInterval(createPetal, 2000);
+    }
+
+    // Start the garden when page loads
+    window.addEventListener('load', initGarden);
+
+    // ... (previous JavaScript code remains the same)
+
+// Create celebration effect
+function createCelebration() {
+    // Create multiple small flowers
+    for (let i = 0; i < 8; i++) {
+        setTimeout(() => {
+            const x = Math.random() * (window.innerWidth - 100);
+            const y = Math.random() * (window.innerHeight - 200) + 100;
+            createSmallFlower(x, y, i);
+        }, i * 200);
+    }
+    
+    // Create extra petals
+    for (let i = 0; i < 15; i++) {
+        setTimeout(createPetal, i * 100);
+    }
+
+    // New code to play music!
+    const birthdayMusic = new Audio('./hb5.m4a'); // 🎵 replace with the correct path to your audio file
+    birthdayMusic.play();
+}
+
+// ... (rest of the JavaScript code)
+
+    // Add keyboard interaction
+    document.addEventListener('keydown', (e) => {
+      if (e.code === 'Space') {
+        e.preventDefault();
+        createFlowerShower();
+      }
+    });
+  </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'970baccca5e146f0',t:'MTc1NTQ1OTk2MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
