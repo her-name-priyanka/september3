@@ -20,7 +20,6 @@
       position: relative;
     }
 
-    /* Floating petals background */
     .petal {
       position: absolute;
       width: 20px;
@@ -48,7 +47,6 @@
       }
     }
 
-    /* Header */
     .header {
       text-align: center;
       padding: 40px 20px;
@@ -93,7 +91,6 @@
       }
     }
 
-    /* Main bouquet container */
     .bouquet-container {
       display: flex;
       justify-content: center;
@@ -114,7 +111,6 @@
       transform: scale(1.05);
     }
 
-    /* Big flower bouquet */
     .big-flower {
       width: 200px;
       height: 200px;
@@ -166,7 +162,6 @@
       50% { transform: translate(-50%, -50%) scale(1.1); }
     }
 
-    /* Flower stem */
     .stem {
       width: 8px;
       height: 100px;
@@ -195,7 +190,6 @@
       transform: rotate(30deg);
     }
 
-    /* Birthday card */
     .birthday-card {
       background: linear-gradient(135deg, #fff, #f8f9fa);
       border-radius: 20px;
@@ -240,7 +234,6 @@
       font-size: 0.9rem;
     }
 
-    /* Small flowers around */
     .small-flower {
       position: absolute;
       width: 40px;
@@ -287,7 +280,6 @@
       z-index: 5;
     }
 
-    /* Interactive celebration button */
     .celebration-btn {
       background: linear-gradient(135deg, #ff69b4, #ff1493);
       border: none;
@@ -313,7 +305,6 @@
       100% { box-shadow: 0 8px 30px rgba(255, 105, 180, 0.6); }
     }
 
-    /* Sparkle effect */
     .sparkle {
       position: absolute;
       width: 4px;
@@ -346,7 +337,6 @@
       }
     }
 
-    /* Responsive design */
     @media (max-width: 768px) {
       .big-flower {
         width: 150px;
@@ -366,13 +356,12 @@
   </style>
 </head>
 <body>
-  <!-- Header -->
+
   <div class="header">
     <h1 class="main-title">🌸 Happy Birthday Priyanka! 🌸</h1>
     <p class="subtitle">A Garden of Wishes Just for You</p>
   </div>
 
-  <!-- Main bouquet -->
   <div class="bouquet-container">
     <div class="main-bouquet" onclick="createCelebration()">
       <div class="big-flower">
@@ -393,7 +382,6 @@
     </div>
   </div>
 
-  <!-- Birthday card -->
   <div class="birthday-card" onclick="createSparkles(event)">
     <h2 class="card-title">Happy Birthday Priyankaaa! 🎂</h2>
     <p class="card-message">
@@ -404,7 +392,6 @@
     <p class="card-signature">With Flowers and Best Wishes 🌸</p>
   </div>
 
-  <!-- Celebration button -->
   <div style="text-align: center;">
     <button class="celebration-btn" onclick="createFlowerShower()">
       🌻 Bloom More Flowers 🌻
@@ -412,7 +399,6 @@
   </div>
 
   <script>
-    // Small flower colors and positions
     const flowerColors = [
       ['#ff6b9d', '#ff8fab'],
       ['#a8e6cf', '#7fcdcd'],
@@ -422,7 +408,6 @@
       ['#fd79a8', '#fdcb6e']
     ];
 
-    // Create floating petals
     function createPetal() {
       const petal = document.createElement('div');
       petal.className = 'petal';
@@ -437,7 +422,6 @@
       setTimeout(() => petal.remove(), 10000);
     }
 
-    // Create small flowers around the main bouquet
     function createSmallFlower(x, y, colorIndex) {
       const flower = document.createElement('div');
       flower.className = 'small-flower';
@@ -470,7 +454,6 @@
       setTimeout(() => flower.remove(), 15000);
     }
 
-    // Create sparkle effect
     function createSparkles(event) {
       const rect = event.target.getBoundingClientRect();
       const x = rect.left + rect.width / 2;
@@ -492,9 +475,8 @@
       }
     }
 
-    // Create celebration effect
     function createCelebration() {
-      // Create multiple small flowers
+
       for (let i = 0; i < 8; i++) {
         setTimeout(() => {
           const x = Math.random() * (window.innerWidth - 100);
@@ -503,13 +485,11 @@
         }, i * 200);
       }
       
-      // Create extra petals
       for (let i = 0; i < 15; i++) {
         setTimeout(createPetal, i * 100);
       }
     }
 
-    // Flower shower effect
     function createFlowerShower() {
       for (let i = 0; i < 20; i++) {
         setTimeout(() => {
@@ -524,9 +504,7 @@
       }
     }
 
-    // Initialize the garden
     function initGarden() {
-      // Create initial small flowers
       const positions = [
         {x: 100, y: 200}, {x: window.innerWidth - 150, y: 250},
         {x: 150, y: window.innerHeight - 200}, {x: window.innerWidth - 200, y: window.innerHeight - 150},
@@ -540,19 +518,13 @@
           }
         }, index * 500);
       });
-      
-      // Start petal animation
+
       setInterval(createPetal, 2000);
     }
 
-    // Start the garden when page loads
     window.addEventListener('load', initGarden);
 
-    // ... (previous JavaScript code remains the same)
-
-// Create celebration effect
 function createCelebration() {
-    // Create multiple small flowers
     for (let i = 0; i < 8; i++) {
         setTimeout(() => {
             const x = Math.random() * (window.innerWidth - 100);
@@ -561,19 +533,14 @@ function createCelebration() {
         }, i * 200);
     }
     
-    // Create extra petals
     for (let i = 0; i < 15; i++) {
         setTimeout(createPetal, i * 100);
     }
 
-    // New code to play music!
-    const birthdayMusic = new Audio('./hb5.m4a'); // 🎵 replace with the correct path to your audio file
+    const birthdayMusic = new Audio('./hb5.m4a'); 
     birthdayMusic.play();
 }
 
-// ... (rest of the JavaScript code)
-
-    // Add keyboard interaction
     document.addEventListener('keydown', (e) => {
       if (e.code === 'Space') {
         e.preventDefault();
@@ -583,3 +550,4 @@ function createCelebration() {
   </script>
 <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'970baccca5e146f0',t:'MTc1NTQ1OTk2MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
+
